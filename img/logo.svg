@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Fowler's WoodCraft emblem">
+  <circle cx="60" cy="60" r="58" fill="#29251f"/>
+  <circle cx="60" cy="60" r="53" fill="none" stroke="#d9a16d" stroke-width="2"/>
+  <!-- box body -->
+  <rect x="28" y="52" width="64" height="38" rx="2" fill="#a96635"/>
+  <!-- dovetail joints on the front corners -->
+  <g fill="#e5b887">
+    <path d="M28 52h9l-2 6 2 6-2 6 2 6-2 6h-7z" opacity=".0"/>
+    <path d="M28 56h6l3 4-3 4h-6zM28 68h6l3 4-3 4h-6zM28 80h6l3 4-3 4h-6z"/>
+    <path d="M92 56h-6l-3 4 3 4h6zM92 68h-6l-3 4 3 4h6zM92 80h-6l-3 4 3 4h6z"/>
+  </g>
+  <!-- lid -->
+  <path d="M26 52 32 36h56l6 16z" fill="#c98a52"/>
+  <rect x="26" y="50" width="68" height="5" rx="1" fill="#704324"/>
+  <!-- grain lines -->
+  <g fill="none" stroke="#704324" stroke-width="1.4" stroke-linecap="round" opacity=".75">
+    <path d="M42 62q18-4 36 0M42 71q18 4 36 0M42 80q18-4 36 0"/>
+  </g>
+  <!-- clasp -->
+  <rect x="55" y="48" width="10" height="12" rx="2" fill="#29251f" stroke="#d9a16d" stroke-width="1.5"/>
+  <circle cx="60" cy="56" r="1.6" fill="#d9a16d"/>
+  <!-- wordmark -->
+  <text x="60" y="106" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" letter-spacing="2" fill="#e5b887">FOWLER'S</text>
+</svg>

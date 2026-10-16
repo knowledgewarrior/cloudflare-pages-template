@@ -1,0 +1,240 @@
+/* Fowler's WoodCraft */
+
+:root {
+  --ink: #29251f;
+  --paper: #f7f3ec;
+  --line: #ddd2c3;
+  --accent: #d9a16d;
+  --accent-light: #e5b887;
+  --hero-text: #fffaf2;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 36px));
+  margin: auto;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  overflow: hidden;
+  background: #28241f;
+  color: var(--hero-text);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #1b1815e8, #1b181599 56%, #1b181522),
+    url("img/hero-wood.svg") center / cover;
+}
+
+.hero-content {
+  position: relative;
+  padding: 56px 0;
+}
+
+.hero-title {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  letter-spacing: -.04em;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.hero h1 em {
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-size: .6em;
+  color: var(--accent-light);
+}
+
+.hero-lede {
+  max-width: 500px;
+  margin: 22px auto 0;
+  color: #e8e0d6;
+  font-size: 1.08rem;
+}
+
+/* Gallery */
+
+.section { padding: 78px 0; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.card { overflow: hidden; }
+
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.card-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.card img { transition: transform .35s ease; }
+.card-btn:hover img { transform: scale(1.03); }
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Lightbox */
+
+.lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #14110ef2;
+  color: #fff8ef;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.lightbox::backdrop { background: #14110e; }
+
+.lb-img {
+  max-width: min(92vw, 1400px);
+  max-height: 86vh;
+  object-fit: contain;
+}
+
+.lb-close,
+.lb-nav {
+  position: absolute;
+  border: 0;
+  background: #ffffff1f;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.lb-close:hover,
+.lb-nav:hover { background: #ffffff40; }
+
+.lb-close { top: 16px; right: 16px; width: 44px; height: 44px; font-size: 2rem; }
+.lb-nav { top: 50%; width: 52px; height: 52px; font-size: 2.4rem; transform: translateY(-50%); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+
+.lb-count {
+  position: absolute;
+  bottom: 14px;
+  margin: 0;
+  font-size: .85rem;
+  color: #c9beb0;
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 24px 0;
+  background: #211e1a;
+  color: #c9beb0;
+  font-size: .84rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.footer-brand img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 360px; }
+  .section { padding: 58px 0; }
+  .card img { max-height: 460px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media (max-width: 540px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
